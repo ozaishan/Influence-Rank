@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./src/routes/index');
-
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -21,6 +21,9 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
 // Serve frontend
 app.use(express.static('frontend/public'));
+app.use(express.static(path.join(__dirname, '../frontend/public')));
+app.use('/css', express.static(path.join(__dirname, '../frontend/css')));
+app.use('/js', express.static(path.join(__dirname, '../frontend/js')));
 
 // Start server
 app.listen(PORT, () => {

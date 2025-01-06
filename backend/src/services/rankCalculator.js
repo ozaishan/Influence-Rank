@@ -13,7 +13,7 @@ const calculateRankScores = async (influencers) => {
       (weights.likes * influencer.likes +
         weights.comments * influencer.comments +
         weights.shares * influencer.shares) *
-      Math.log10(1 + influencer.followers); // Scale based on followers
+      Math.log10(1 + influencer.followers); // scale based on followers
   });
 
   // Normalize rank scores

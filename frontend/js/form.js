@@ -11,9 +11,11 @@ document.getElementById('influencer-form').addEventListener('submit', async (eve
   // Data to send
   const data = { name, followers, likes, comments, shares };
 
+
   // Send POST request to backend
   try {
-    const response = await fetch('​http://localhost:5000/api/add-influencer', { // Use your backend URL here
+    console.log(data)
+    const response = await fetch('http://localhost:5000/api/add-influencer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

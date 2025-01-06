@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rankings - InfluenceRank</title>
-    <link rel="stylesheet" href="/frontend/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    
 </head>
 <body>
     <!-- Rankings Page -->
@@ -35,11 +36,10 @@
             </form>
         </div>
 
-        <!-- Graph Placeholder -->
+        <!-- Show Graph Button -->
         <div id="graph">
-            <p>Interactive Graph Coming Soon</p>
+            <a href="graph.html"><button>Show Graph</button></a>
         </div>
-
         <!-- Rankings Table -->
         <table class="ranking-table" id="ranking-table">
             <tr>
@@ -61,43 +61,7 @@
             </tr>
         </table>
     </div>
-
-    <script>
-        // Handle Form Submission
-        const form = document.getElementById('influencer-form');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const followers = +document.getElementById('followers').value;
-            const likes = +document.getElementById('likes').value || 0;
-            const comments = +document.getElementById('comments').value || 0;
-            const shares = +document.getElementById('shares').value || 0;
-
-            console.log("Data Added:", { name, followers, likes, comments, shares });
-
-            // Calculate Engagement Score (you can modify this formula as needed)
-            const engagementScore = (likes + comments + shares) / followers * 100;
-
-            // Calculate InfluenceRank Score (you can modify this formula as needed)
-            const influenceRankScore = engagementScore * 0.9;
-
-            // Create a new row in the rankings table
-            const table = document.getElementById('ranking-table');
-            const row = table.insertRow(-1);  // Insert row at the end
-
-            row.innerHTML = `
-                <td>${table.rows.length - 1}</td>
-                <td>${name}</td>
-                <td>Instagram</td>
-                <td>${engagementScore.toFixed(2)}</td>
-                <td>${followers}</td>
-                <td>${influenceRankScore.toFixed(2)}</td>
-            `;
-
-            // Clear form inputs
-            form.reset();
-        });
-    </script>
+    <script src="/js/form.js"></script>
+   
 </body>
 </html>
