@@ -1,37 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Influencer Network Graph</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>InfluenceRank - Network Graph</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
     <style>
-        /* Inline style for full-page graph rendering */
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
             margin: 0;
             padding: 0;
-            height: 100%;  /* Ensure the body takes full height */
-            overflow: hidden;  /* Prevent default scrolling */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
+
         h1 {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
             color: #333;
-            z-index: 10;  /* Place the title above the graph */
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
+        #graph-container {
+            position: relative;
+            width: 90%;
+            height: 80%;
+            border: 2px solid #d5bdbd;
+            border-radius: 10px;
+            background-color: #F5FFFA;
+            /* background-color: rgb(225, 213, 213); */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
         svg {
-            width: 100%;  /* Make SVG take full width of the page */
-            height: 100%; /* Make SVG take full height of the page */
-            background-color: #f0f0f0; /* Light background color */
+            width: 100%;
+            height: 100%;
+        }
+
+        circle {
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+
+        text {
+            font-size: 12px;
+            fill: #020101;
+            pointer-events: none;
         }
     </style>
 </head>
+
 <body>
-    <h1>Influencer Network Graph</h1>
-    <svg id="graph"></svg>  <!-- Removed the container div for a full-page SVG -->
+    <h1>Influence Rank - Network Graph</h1>
+    <div id="graph-container">
+        <svg id="graph"></svg>
+    </div>
     <script src="/js/graph.js"></script>
 </body>
+
 </html>

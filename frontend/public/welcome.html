@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - InfluenceRank</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
     <!-- Welcome Page -->
     <div class="welcome" id="welcome">
-        <h1>Welcome to InfluenceRank!</h1>
+        <h1>Welcome to <span class="highlight">InfluenceRank!</span></h1>
         <p>Discover the ultimate platform to analyze and rank social media influencers based on their true impact.</p>
-        <button onclick="navigateTo('features.html')">Explore InfluenceRank</button>
+        <button onclick="navigateTo('features.html')" class="explore-btn">
+            Explore InfluenceRank
+        </button>
     </div>
     <script>
         function navigateTo(page) {
@@ -19,4 +24,5 @@
         }
     </script>
 </body>
+
 </html>

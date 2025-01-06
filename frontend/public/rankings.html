@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rankings - InfluenceRank</title>
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    
 </head>
+
 <body>
     <!-- Rankings Page -->
     <div class="rankings" id="rankings">
         <h2>Explore Influencer Rankings</h2>
-        
+
         <!-- Add Influencer Form -->
         <div id="form-container">
             <h2>Add Influencer Data</h2>
@@ -32,36 +33,22 @@
                 <label for="shares">Shares:</label>
                 <input type="number" id="shares" name="shares">
 
-                <button type="submit">Add Influencer</button>
+
+                <div class="button-container">
+                    <!-- Add Influencer Button -->
+                    <button class="add-influencer-btn">Add Influencer</button>
+
+                    <!-- Show Graph Button -->
+                </div>
             </form>
+            <a href="graph.html">
+                <button class="show-graph-btn">Show Graph</button>
+            </a>
         </div>
 
-        <!-- Show Graph Button -->
-        <div id="graph">
-            <a href="graph.html"><button>Show Graph</button></a>
-        </div>
-        <!-- Rankings Table -->
-        <table class="ranking-table" id="ranking-table">
-            <tr>
-                <th>Rank</th>
-                <th>Influencer Name</th>
-                <th>Platform</th>
-                <th>Engagement Score</th>
-                <th>Reach</th>
-                <th>InfluenceRank Score</th>
-            </tr>
-            <!-- Existing Row -->
-            <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>Instagram</td>
-                <td>95</td>
-                <td>1.2M</td>
-                <td>92</td>
-            </tr>
-        </table>
     </div>
+
     <script src="/js/form.js"></script>
-   
 </body>
+
 </html>
