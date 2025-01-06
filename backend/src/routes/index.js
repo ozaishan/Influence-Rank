@@ -86,17 +86,20 @@ router.get('/influencers', async (req, res) => {
 });
 
 // Get graph data for visualization
+// Get graph data for visualization
 router.get('/graph-data', async (req, res) => {
   try {
     const influencers = await Influencer.find(); // Fetch all influencers
-    const rankedInfluencers = await calculateRankScores(influencers);
-    const graphData = generateGraphData(rankedInfluencers);
-    res.json(graphData);
+    const rankedInfluencers = await calculateRankScores(influencers); // Calculate ranks and update
+    const graphData = generateGraphData(rankedInfluencers); // Generate graph data based on ranked influencers
+    res.json(graphData); // Send the graph data as response
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to generate graph data' });
   }
-});router.post('/import-csv', async (req, res) => {
+});
+// Import CSV and update ranks
+router.post('/import-csv', async (req, res) => {
   try {
     const filePath = './src/updated_cleaned_influencers_data.csv'; // Adjusted path
     const influencers = [];
@@ -118,15 +121,16 @@ router.get('/graph-data', async (req, res) => {
       })
       .on('end', async () => {
         try {
-          await Influencer.insertMany(influencers);
+          await Influencer.insertMany(influencers); // Insert influencers into DB
           console.log('CSV data imported successfully!');
 
+          // Recalculate and update ranks after importing the data
           const allInfluencers = await Influencer.find();
-          const rankedInfluencers = await calculateRankScores(allInfluencers);
+          const rankedInfluencers = await calculateRankScores(allInfluencers); // Calculate and update ranks
 
           res.status(201).json({
             message: 'CSV data imported and ranks calculated successfully',
-            rankedInfluencers,
+            rankedInfluencers, // Send the ranked influencers as response
           });
         } catch (error) {
           res.status(500).json({ message: 'Error processing CSV data', error });

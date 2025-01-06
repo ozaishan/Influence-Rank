@@ -1,3 +1,6 @@
+// services/rankCalculator.js
+const Influencer = require('../models/influencerModel');
+
 // Rank calculation logic
 const calculateRankScores = async (influencers) => {
   // Example weights for engagement metrics
@@ -22,7 +25,15 @@ const calculateRankScores = async (influencers) => {
     influencer.rankScore = influencer.rankScore / maxScore; // Normalize to range [0, 1]
   });
 
-  return influencers;
+  // Update the rank in the database for each influencer
+  await Promise.all(
+    influencers.map((influencer) => {
+      return Influencer.findByIdAndUpdate(influencer._id, { rankScore: influencer.rankScore }, { new: true });
+    })
+  );
+
+  // Sort influencers by their normalized rank scores in descending order
+  return influencers.sort((a, b) => b.rankScore - a.rankScore);
 };
 
 module.exports = { calculateRankScores };
