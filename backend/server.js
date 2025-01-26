@@ -27,5 +27,5 @@ app.use('/js', express.static(path.join(__dirname, '../frontend/js')));
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}/welcome.html`);
 });
