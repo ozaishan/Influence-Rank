@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - InfluenceRank</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
     <!-- Features Page -->
     <div class="features" id="features">
-        <h2>What Makes InfluenceRank Unique?</h2>
-        <p>InfluenceRank solves critical challenges in influencer marketing by combining engagement quality and audience reach. 
-        This ensures that marketers identify influencers with real impact and genuine interaction.</p>
-        <button onclick="navigateTo('learn-more.html')">Learn More</button>
-        <button onclick="navigateTo('rankings.html')">Get Started</button>
+        <h2>What Makes <span class="highlight">InfluenceRank</span> Unique?</h2>
+        <p>InfluenceRank solves critical challenges in influencer marketing by combining engagement quality and audience
+            reach.
+            This ensures that marketers identify influencers with real impact and genuine interaction.</p>
+        <div class="button-container">
+            <button class="primary-btn" onclick="navigateTo('learn-more.html')">Learn More</button>
+            <button class="secondary-btn" onclick="navigateTo('rankings.html')">Get Started</button>
+        </div>
     </div>
     <script>
         function navigateTo(page) {
             window.location.href = page;
         }
     </script>
-    
 </body>
+
 </html>
